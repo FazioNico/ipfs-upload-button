@@ -1,0 +1,16 @@
+{
+  "name": "ipfs-ui",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@nrwl/cli": "14.7.16",
+    "@nrwl/js": "14.7.16",
+    "@nrwl/workspace": "14.7.16",
+    "nx": "14.7.16",
+    "prettier": "^2.6.2",
+    "typescript": "~4.8.2"
+  }
+}
