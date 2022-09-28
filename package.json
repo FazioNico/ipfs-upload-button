@@ -1,16 +1,37 @@
 {
-  "name": "ipfs-ui",
+  "name": "ipfs-upload-button",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "core-js": "^3.25.3",
+    "regenerator-runtime": "0.13.7",
+    "tslib": "^2.3.0",
+    "web3.storage": "^4.4.0"
+  },
   "devDependencies": {
     "@nrwl/cli": "14.7.16",
+    "@nrwl/eslint-plugin-nx": "14.7.16",
+    "@nrwl/jest": "14.7.16",
     "@nrwl/js": "14.7.16",
+    "@nrwl/linter": "14.7.16",
+    "@nrwl/web": "^14.7.16",
+    "@nrwl/webpack": "14.7.16",
     "@nrwl/workspace": "14.7.16",
+    "@types/jest": "28.1.1",
+    "@types/node": "16.11.7",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "css-loader": "^6.7.1",
+    "eslint": "~8.15.0",
+    "eslint-config-prettier": "8.1.0",
+    "jest": "28.1.1",
+    "jest-environment-jsdom": "28.1.1",
     "nx": "14.7.16",
     "prettier": "^2.6.2",
+    "ts-jest": "28.0.5",
+    "ts-node": "10.9.1",
     "typescript": "~4.8.2"
   }
 }

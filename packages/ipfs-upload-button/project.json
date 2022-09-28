@@ -1,0 +1,88 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/ipfs-upload-button/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/ipfs-upload-button",
+        "main": "packages/ipfs-upload-button/src/index.ts",
+        "tsConfig": "packages/ipfs-upload-button/tsconfig.lib.json",
+        "assets": ["packages/ipfs-upload-button/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/ipfs-upload-button/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/ipfs-upload-button"],
+      "options": {
+        "jestConfig": "packages/ipfs-upload-button/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "package": {
+      "executor": "@nrwl/web:rollup",
+      "options": {
+        "project": "packages/ipfs-upload-button/package.json",
+        "entryFile": "packages/ipfs-upload-button/src/index.ts",
+        "outputPath": "dist/packages/ipfs-upload-button",
+        "deleteOutputPath": true,
+        "tsConfig": "packages/ipfs-upload-button/tsconfig.lib.json",
+        "format": [
+          "cjs", "esm"
+        ],
+        "external": [],
+        "watch": false,
+        "updateBuildableProjectDepsInPackageJson": true,
+        "buildableProjectDepsInPackageJsonType": "dependencies",
+        "rollupConfig": [],
+        "umdName": "ipfs-upload-button",
+        "globals": [],
+        "extractCss": true,
+        "assets": [],
+        "compiler": "babel",
+        "javascriptEnabled": true,
+        "generateExportsField": true,
+        "skipTypeField": true
+      }
+    },
+    "bundle": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "libraryName": "index",
+        "libraryTargets": ["global"],
+        "index": "",
+        "deleteOutputPath": false,
+        "tsConfig": "packages/ipfs-upload-button/tsconfig.lib.json",
+        "main": "packages/ipfs-upload-button/src/index.ts",
+        "outputPath": "dist/packages/ipfs-upload-button",
+        "compiler": "babel",
+        "optimization": true,
+        "extractLicenses": true,
+        "runtimeChunk": false,
+        "vendorChunk": false,
+        "generateIndexHtml": false,
+        "commonChunk": false,
+        "namedChunks": false,
+        "webpackConfig": "packages/ipfs-upload-button/webpack.config.js"
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+          "command": "cd dist/packages/ipfs-upload-button && npm publish --tag=latest --access public "
+      }
+    }
+  },
+  "tags": []
+}
