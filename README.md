@@ -1,32 +1,57 @@
-
-
 # IPFS Upload button
 
 > Customable Web Component button to upload files to IPFS.
 
-## Project Description
-
-## Value Proposition
-
 ## Technology Stack
+
+  - [Typescript](https://www.typescriptlang.org/) - Programming language used to develop the project.
+  - [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) - To build and provide cross-browser support for the component.
+  - [Web3Storage](https://web3.storage/) - As IPFS provider and pinning service.
 
 ## Usage & Installation
 
-## How it's built
+  - install NPM package `npm install @fazionico/ipfs-upload-button`
+  - import the component in your project `import '@fazionico/ipfs-upload-button'`
+  - add the component to your HTML page `<ipfs-upload-button token="YOUR_WEB3STORAGE_APIKEY"></ipfs-upload-button>`
 
 ## Development
 
-## Build
+- Clone repository
+- Install dependencies using NodeJS and NPM
+- Install Nx Workspace CLI to manage workspace project
+- Run developpment server using nx serve command will open the application in the browser
+- This project was generated using Nx Workspace.
 
 ## Publish
 
-## Documentation
+- Run `nx publish ipfs-upload-button` to build and publish the project to NPM registry.
 
 ## Architecture overview
 
-## License
+The follder architecture is based on Nx Workspace to provide a configurable workspace that can contain multiple applications in the `./apps` folder and multiple libraries in the `./packages` folder. 
+This is very useful for building large scale applications with multiple components and features that can be easily maintained and updated.
+
+The main package is stored in `./packages/ipfs-upload-button` folder and it contains files and folders organized with the following structure:
+
+| File                                      | Description                                                           |
+|-------------------------------------------|-----------------------------------------------------------------------|
+| `/src/index.ts`                           | contains the main entry point of the library                          |
+| `/src/lib/upload-button-ui.element.ts`    | Web Component that implement UI                                       |
+| `/src/lib/ipfs-upload-button.element.ts`  | Web Component that implenent interaction with Web3Storage Service     |
+| `/src/lib/web3-storage.service.ts`        | Service that interact with Web3Storage Library to store media to IPFS |
+
 
 ## Contributing
+
+Thanks for taking the time to help out and improve the project! 🎉
+
+The following is a set of guidelines for contributions and may change over time. Feel free to suggest improvements to this document in a pull request!
+
+See [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## License
+
+Project is Open Source and available under the [MIT License](LICENSE).
 
 ## Team
 
