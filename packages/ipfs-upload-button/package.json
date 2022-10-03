@@ -1,6 +1,6 @@
 {
   "name": "@fazio/ipfs-upload-button",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Customisable HTML Web Component button to upload files to IPFS",
   "dependencies": {
     "core-js": "^3.25.3",

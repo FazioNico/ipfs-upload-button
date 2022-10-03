@@ -47,7 +47,13 @@
         "umdName": "ipfs-upload-button",
         "globals": [],
         "extractCss": true,
-        "assets": [],
+        "assets": [
+          {
+            "input": "packages/ipfs-upload-button",
+            "glob": "**/*.md",
+            "output": "."
+          }
+        ],
         "compiler": "babel",
         "javascriptEnabled": true,
         "generateExportsField": true,

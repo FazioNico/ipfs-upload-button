@@ -1,11 +1,47 @@
-# ipfs-upload-button
+# @fazio/ipfs-upload-button
 
-This library was generated with [Nx](https://nx.dev).
+> Customable Web Component button to upload files to IPFS.
 
-## Running unit tests
+## Usage & Installation
 
-Run `nx test ipfs-upload-button` to execute the unit tests via [Jest](https://jestjs.io).
+  - install NPM package `npm install @fazio/ipfs-upload-button`
+  - import the component in your project `import '@fazio/ipfs-upload-button'`
+  - create `APIKEY` on [Web3Storage](https://web3.storage/).
+  - add the component to your HTML page 
+    ```html
+    <ipfs-upload-button token="YOUR_WEB3STORAGE_APIKEY">
+      Upload to IPFS
+    </ipfs-upload-button>
+    ```
 
-## Running lint
+### Attributes
 
-Run `nx lint ipfs-upload-button` to execute the lint via [ESLint](https://eslint.org/).
+You can use the following attribut to toggle the component behavior:
+
+  - `token` - **required** - Your Web3Storage APIKEY.
+  - `isdisplayresult` - **optional** - Display the result of the upload in the DOM. Default value is `false`.
+
+### Customization Style
+
+You can customize the component style by using the following CSS-Parts:
+
+  - `btn` - The button element
+  - `spinner` - The spinner element
+  - `result` - The results display element 
+
+**Example:**
+
+```css
+  web3-upload-btn::part(btn) {
+    background-color: rgb(0, 162, 255);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+```
