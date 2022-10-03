@@ -64,6 +64,7 @@ export abstract class UploadButtonUI extends HTMLElement {
           }
           #storage-result {
             display: none;
+            margin-top: 1rem;
           }
           #storage-result a {
             display: flex;
@@ -83,11 +84,11 @@ export abstract class UploadButtonUI extends HTMLElement {
             display: inline-block;
             position: relative;
             width: 80px;
-            height: 80px;
+            height: 12px;
           }
           .lds-ellipsis div {
             position: absolute;
-            top: 33px;
+            top: 0px;
             width: 13px;
             height: 13px;
             border-radius: 50%;
@@ -237,7 +238,7 @@ export abstract class UploadButtonUI extends HTMLElement {
           `;
         })
         .join('<br>');
-      el.style.display = 'block';
+      el.style.display = 'inline-block';
     }
   }
 }
