@@ -45,3 +45,20 @@ You can customize the component style by using the following CSS-Parts:
     text-transform: uppercase;
   }
 ```
+
+### Handle Events
+
+You can handle the following events from the component:
+
+  - `progress` - The upload progress event. The event detail is the upload progress in percentage.
+  - `success` - The upload success event. The event detail is the upload result.
+  - `error` - The upload error event. The event detail is the error message.
+
+**Example:**
+  
+  ```js
+  const btn = document.querySelector('web3-upload-btn')
+  btn.addEventListener('success', (e) => {
+    console.log('Result: ', e.detail);
+  });
+  ```
