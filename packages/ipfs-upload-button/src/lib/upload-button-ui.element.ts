@@ -238,7 +238,7 @@ export abstract class UploadButtonUI extends HTMLElement {
           `;
         })
         .join('<br>');
-      el.style.display = 'inline-block';
+      el.style.display = 'block';
     }
   }
 }
