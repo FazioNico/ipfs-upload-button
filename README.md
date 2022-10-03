@@ -15,9 +15,9 @@
   - create `APIKEY` on [Web3Storage](https://web3.storage/).
   - add the component to your HTML page 
     ```html
-    <ipfs-upload-button token="YOUR_WEB3STORAGE_APIKEY">
+    <web3-upload-btn token="YOUR_WEB3STORAGE_APIKEY">
       Upload to IPFS
-    </ipfs-upload-button>
+    </web3-upload-btn>
     ```
 
 ### Attributes
