@@ -1,4 +1,4 @@
-import '@fazionico/ipfs-upload-button';
+import '@fazio/ipfs-upload-button';
 
 import './app.element.css';
 

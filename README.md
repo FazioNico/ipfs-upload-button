@@ -10,8 +10,8 @@
 
 ## Usage & Installation
 
-  - install NPM package `npm install @fazionico/ipfs-upload-button`
-  - import the component in your project `import '@fazionico/ipfs-upload-button'`
+  - install NPM package `npm install @fazio/ipfs-upload-button`
+  - import the component in your project `import '@fazio/ipfs-upload-button'`
   - add the component to your HTML page `<ipfs-upload-button token="YOUR_WEB3STORAGE_APIKEY"></ipfs-upload-button>`
 
 ## Development
@@ -24,7 +24,7 @@
 
 ## Publish
 
-- Run `nx publish ipfs-upload-button` to build and publish the project to NPM registry.
+- Run `npm run publish` to build and publish the project to NPM registry.
 
 ## Architecture overview
 
@@ -59,7 +59,7 @@ Project is Open Source and available under the [MIT License](LICENSE).
   
   Software Architect & Blockchain Developer
 
-  Mr. Fazio is a software architect and blockchain developer with over 15 years of industry experience. He has worked on a variety of projects ranging from cloud enterprise software to blockchain applications focusing last 3 years exclusively in the Web 3 industry. He is passionate about building decentralized solutions and is currently working on the dDrive project.
+  Mr. Fazio is a software architect and blockchain developer with over 15 years of industry experience. He has worked on a variety of projects ranging from cloud enterprise software to blockchain applications focusing last 3 years exclusively in the Web 3 industry. He is passionate about building decentralized solutions and is currently working on Web3 projects.
 
   LinkedIn: [https://www.linkedin.com/in/fazio-nicolas/](https://www.linkedin.com/in/fazio-nicolas/)
 

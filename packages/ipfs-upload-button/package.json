@@ -1,5 +1,5 @@
 {
-  "name": "@fazionico/ipfs-upload-button",
+  "name": "@fazio/ipfs-upload-button",
   "version": "0.0.1",
   "description": "Customisable HTML Web Component button to upload files to IPFS",
   "dependencies": {

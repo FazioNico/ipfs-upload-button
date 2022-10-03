@@ -2,7 +2,11 @@
   "name": "ipfs-upload-button",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "serve:html-demo": "nx serve html-demo",
+    "bundle": "nx bundle ipfs-upload-button --verbose",
+    "publish": "nx publish ipfs-upload-button"
+  },
   "private": true,
   "dependencies": {
     "core-js": "^3.25.3",

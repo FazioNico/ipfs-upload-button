@@ -17,7 +17,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@fazionico/ipfs-upload-button": [
+      "@fazio/ipfs-upload-button": [
         "packages/ipfs-upload-button/src/index.ts"
       ]
     }
