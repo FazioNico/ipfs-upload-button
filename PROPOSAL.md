@@ -21,7 +21,7 @@ Media files are stored on the [IPFS/Filecoin network](https://ipfs.io/). The app
 
 We will improve the project by adding the following features:
 
-  - Improve the UI/UX of the customable component parts to make it more user friendly.
+  - Improve the UI/UX of the customable component parts to make it more customable and user friendly.
   - Improve the documentation of the project and add more examples of usage (react,vue, angular, etc...).
   - Allow user to use multiple IPFS providers and pinning services (Pinata, Infura, etc...)
   - Add more features to the component (e.g. upload a file from a URL, upload a folder, etc...)

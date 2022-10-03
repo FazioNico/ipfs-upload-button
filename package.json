@@ -5,11 +5,13 @@
   "scripts": {
     "serve:html-demo": "nx serve html-demo",
     "bundle": "nx bundle ipfs-upload-button --verbose",
-    "publish": "nx publish ipfs-upload-button"
+    "publish": "nx publish ipfs-upload-button",
+    "deploy:static-html-demo": "gh-pages -d ./apps/static-html-demo"
   },
   "private": true,
   "dependencies": {
     "core-js": "^3.25.3",
+    "gh-pages": "^4.0.0",
     "regenerator-runtime": "0.13.7",
     "tslib": "^2.3.0",
     "web3.storage": "^4.4.0"
