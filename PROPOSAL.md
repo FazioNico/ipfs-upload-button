@@ -2,13 +2,13 @@
 
 This project is an Javascript library that provide a Web Component to allow user/developper hosting media files on IFPS network.
 
-This Web Component is fast, easy to use, customizable and can be used in any web page or web application by just adding a script tag to the HTML page.
+This Web Component is fast, easy to use, customizable and can be used in any web page or web application by just adding script and tag to the HTML page.
 
 ## 2. Project links
 
 Link to Github repo: [https://github.com/FazioNico/ipfs-upload-button](https://github.com/FazioNico/ipfs-upload-button)
 
-Link to demo or website, if applicable: 
+Link to demo or website, if applicable: [https:/fazionico.github.io/ipfs-upload-button](https:/fazionico.github.io/ipfs-upload-button/inidex.html)
 
 License: MIT
 
@@ -21,7 +21,7 @@ Media files are stored on the [IPFS/Filecoin network](https://ipfs.io/). The app
 
 We will improve the project by adding the following features:
 
-  - Improve the UI/UX of the component to make it more user friendly.
+  - Improve the UI/UX of the customable component parts to make it more user friendly.
   - Improve the documentation of the project and add more examples of usage (react,vue, angular, etc...).
   - Allow user to use multiple IPFS providers and pinning services (Pinata, Infura, etc...)
   - Add more features to the component (e.g. upload a file from a URL, upload a folder, etc...)

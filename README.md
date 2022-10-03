@@ -12,7 +12,45 @@
 
   - install NPM package `npm install @fazio/ipfs-upload-button`
   - import the component in your project `import '@fazio/ipfs-upload-button'`
-  - add the component to your HTML page `<ipfs-upload-button token="YOUR_WEB3STORAGE_APIKEY"></ipfs-upload-button>`
+  - create `APIKEY` on [Web3Storage](https://web3.storage/).
+  - add the component to your HTML page 
+    ```html
+    <ipfs-upload-button token="YOUR_WEB3STORAGE_APIKEY">
+      Upload to IPFS
+    </ipfs-upload-button>
+    ```
+
+### Attributes
+
+You can use the following attribut to toggle the component behavior:
+
+  - `token` - **required** - Your Web3Storage APIKEY.
+  - `isdisplayresult` - **optional** - Display the result of the upload in the DOM. Default value is `false`.
+
+### Customization Style
+
+You can customize the component style by using the following CSS-Parts:
+
+  - `btn` - The button element
+  - `spinner` - The spinner element
+  - `result` - The results display element 
+
+**Example:**
+
+```css
+  web3-upload-btn::part(btn) {
+    background-color: rgb(0, 162, 255);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+```
 
 ## Development
 
