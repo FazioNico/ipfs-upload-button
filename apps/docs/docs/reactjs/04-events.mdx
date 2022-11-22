@@ -1,0 +1,42 @@
+---
+sidebar_position: 3
+---
+
+# Events management
+
+You can handle the following events from the component:
+
+  - `progress` - The upload progress event. The event detail is the upload progress in percentage.
+  - `success` - The upload success event. The event detail is the upload result.
+  - `error` - The upload error event. The event detail is the error message.
+
+**Example:**
+  
+```js
+
+const onSuccess = (e) => {
+  console.log(e.detail);
+}
+
+export function App() {
+  const token = 'WEB3STORAGE_APIKEY';
+
+  function onSuccess(e) {
+    console.log(e.detail);
+  }
+
+  return (
+    <>
+      <div/>
+      <web3-upload-btn 
+        token={token}
+        isdisplayresult={true}
+        isdisplaytoast={true}
+        onClick={onSuccess}></web3-upload-btn>
+      <div />
+    </>
+  );
+}
+export default App;
+
+```
