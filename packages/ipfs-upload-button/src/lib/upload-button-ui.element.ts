@@ -42,7 +42,7 @@ export abstract class UploadButtonUI extends HTMLElement {
     }
     if (name === 'isdisplaytoast') {
       console.log('isdisplaytoast', Boolean(value));
-      
+
       this.isDisplayToast = Boolean(value);
     }
   }
@@ -222,9 +222,15 @@ export abstract class UploadButtonUI extends HTMLElement {
       throw new Error(message);
     }
     // find all ui elements
-    const inputElement = this.shadowRoot.querySelector('input') as HTMLInputElement;
-    const resultElement = this.shadowRoot.querySelector('#storage-result') as HTMLElement;
-    const buttonElement = this.shadowRoot.querySelector('button') as HTMLButtonElement;
+    const inputElement = this.shadowRoot.querySelector(
+      'input'
+    ) as HTMLInputElement;
+    const resultElement = this.shadowRoot.querySelector(
+      '#storage-result'
+    ) as HTMLElement;
+    const buttonElement = this.shadowRoot.querySelector(
+      'button'
+    ) as HTMLButtonElement;
     // handle undefined elements
     if (!inputElement || !resultElement || !buttonElement) {
       const message = '[ERROR] Some Elements are not defined';
@@ -291,12 +297,22 @@ export abstract class UploadButtonUI extends HTMLElement {
     this.dispatchEvent(new CustomEvent('success', { detail: { result } }));
   }
 
-  private async _displayToast({ message ,hideInMS = 3000, type = `success`}: {message: string, hideInMS?: number, type?: string }) {
+  private async _displayToast({
+    message,
+    hideInMS = 3000,
+    type = `success`,
+  }: {
+    message: string;
+    hideInMS?: number;
+    type?: string;
+  }) {
     if (!this.shadowRoot) {
       throw new Error('[ERROR] shadowRoot is not defined');
     }
     // get created element
-    const toastElement = this.shadowRoot.querySelector('#ipfsToast') as HTMLElement;
+    const toastElement = this.shadowRoot.querySelector(
+      '#ipfsToast'
+    ) as HTMLElement;
     if (!toastElement) {
       throw new Error('[ERROR] toastElement is not defined');
     }
@@ -309,8 +325,7 @@ export abstract class UploadButtonUI extends HTMLElement {
       toastElement.classList.remove('show');
       toastElement.classList.remove(type);
       clearTimeout(t);
-    }
-    , hideInMS);
+    }, hideInMS);
   }
 
   private async _displayResult(
