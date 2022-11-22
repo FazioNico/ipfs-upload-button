@@ -15,12 +15,13 @@ export class AppElement extends HTMLElement {
         <!--  WELCOME  -->
         <div id="welcome">
           <h1>
-            <span> Hello there, </span>
+            <span> Hello there! </span>
             Welcome ${title} 👋
           </h1>
           <web3-upload-btn 
             token="${token}"
-            isdisplayresult="true"></web3-upload-btn>
+            isdisplayresult="true"
+            isdisplaytoast="false"></web3-upload-btn>
         </div>
       </div>
     </div>
@@ -34,7 +35,7 @@ export class AppElement extends HTMLElement {
     });
     button.addEventListener('success', (e: any) => {
       console.log('Result: ', e.detail);
-      alert('File uploaded successfully to IPFS');
+      // alert('File uploaded successfully to IPFS');
     });
     button.addEventListener('error', (e: any) => {
       alert(e.detail);
