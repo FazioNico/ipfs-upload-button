@@ -163,6 +163,10 @@ export abstract class UploadButtonUI extends HTMLElement {
             background-color: lightgreen; /* Fallback Background color */
             background-color: springgreen; /* Background color */
           }
+          #ipfsToast.error {
+            background-color: red; /* Fallback Background color */
+            background-color: indianred; /* Background color */
+          }
           #ipfsToast span {
             margin-left: 12px;
             margin-top: 2px;
