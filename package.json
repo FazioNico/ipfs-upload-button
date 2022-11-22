@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "serve:docs": "npx nx start docs",
     "serve:html-demo": "nx serve html-demo",
     "bundle": "nx bundle ipfs-upload-button --verbose",
     "publish": "nx publish ipfs-upload-button",
