@@ -1,4 +1,5 @@
 {
+  "name": "ipfs-upload-button",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/ipfs-upload-button/src",
   "projectType": "library",
@@ -36,9 +37,7 @@
         "outputPath": "dist/packages/ipfs-upload-button",
         "deleteOutputPath": true,
         "tsConfig": "packages/ipfs-upload-button/tsconfig.lib.json",
-        "format": [
-          "cjs", "esm"
-        ],
+        "format": ["cjs", "esm"],
         "external": [],
         "watch": false,
         "updateBuildableProjectDepsInPackageJson": true,
@@ -86,7 +85,7 @@
       "executor": "@nrwl/workspace:run-commands",
       "outputs": [],
       "options": {
-          "command": "cd dist/packages/ipfs-upload-button && npm publish --tag=latest --access public "
+        "command": "cd dist/packages/ipfs-upload-button && npm publish --tag=latest --access public "
       }
     }
   },
