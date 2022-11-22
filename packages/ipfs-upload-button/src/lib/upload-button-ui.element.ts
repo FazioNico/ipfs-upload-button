@@ -35,14 +35,12 @@ export abstract class UploadButtonUI extends HTMLElement {
   }
 
   attributeChangedCallback(name: string, old: string, value: string) {
-    console.log(`Element's attribute ${name} was ${old} and is now ${value}`);
+    // console.log(`Element's attribute ${name} was ${old} and is now ${value}`);
     // set correct value to the property
     if (name === 'isdisplayresult') {
       this.isDisplayResult = Boolean(value);
     }
     if (name === 'isdisplaytoast') {
-      console.log('isdisplaytoast', Boolean(value));
-
       this.isDisplayToast = Boolean(value);
     }
   }
