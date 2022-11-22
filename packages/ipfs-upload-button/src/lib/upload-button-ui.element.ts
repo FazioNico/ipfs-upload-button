@@ -1,6 +1,7 @@
 export abstract class UploadButtonUI extends HTMLElement {
   public isDisplayResult?: boolean;
-  public static observedAttributes = ['isdisplayresult'];
+  public isDisplayToast?: boolean;
+  public static observedAttributes = ['isdisplayresult', 'isdisplaytoast'];
 
   constructor() {
     super();
@@ -34,10 +35,15 @@ export abstract class UploadButtonUI extends HTMLElement {
   }
 
   attributeChangedCallback(name: string, old: string, value: string) {
-    // console.log(`Element's attribute ${name} was ${old} and is now ${value}`);
+    console.log(`Element's attribute ${name} was ${old} and is now ${value}`);
     // set correct value to the property
     if (name === 'isdisplayresult') {
       this.isDisplayResult = Boolean(value);
+    }
+    if (name === 'isdisplaytoast') {
+      console.log('isdisplaytoast', Boolean(value));
+      
+      this.isDisplayToast = Boolean(value);
     }
   }
 
@@ -134,7 +140,65 @@ export abstract class UploadButtonUI extends HTMLElement {
             100% {
               transform: translate(24px, 0);
             }
-          }          
+          } 
+          
+          /* Toast Element */
+          #ipfsToast {
+            visibility: hidden; /* Hidden by default. Visible on click */
+            min-width: 250px; /* Set a default minimum width */
+            margin-left: -125px; /* Divide value of min-width by 2 */
+            background-color: lightblue; /* Background color */
+            color: #fff; /* White text color */
+            text-align: center; /* Centered text */
+            border-radius: 8px; /* Rounded borders */
+            padding: 16px; /* Padding */
+            position: fixed; /* Sit on top of the screen */
+            z-index: 1; /* Add a z-index if needed */
+            left: 50%; /* Center the snackbar */
+            bottom: 30px; /* 30px from the bottom */
+            font-family: 'Roboto', sans-serif;
+            display: inline-flex;
+            line-hight: 12px;
+          }
+          #ipfsToast.success {
+            background-color: green; /* Fallback Background color */
+            background-color: lightgreen; /* Fallback Background color */
+            background-color: springgreen; /* Background color */
+          }
+          #ipfsToast span {
+            margin-left: 12px;
+            margin-top: 2px;
+          }
+          
+          /* Show the SIMPLE-TOAST when clicking on a button (class added with JavaScript) */
+          #ipfsToast.show {
+            visibility: visible; /* Show the SIMPLE-TOAST */
+            /* Add animation: Take 0.5 seconds to fade in and out the SIMPLE-TOAST.
+            However, delay the fade out process for 2.5 seconds */
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+          }
+          
+          /* Animations to fade the SIMPLE-TOAST in and out */
+          @-webkit-keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 30px; opacity: 1;}
+          }
+          
+          @keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 30px; opacity: 1;}
+          }
+          
+          @-webkit-keyframes fadeout {
+            from {bottom: 30px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+          }
+          
+          @keyframes fadeout {
+            from {bottom: 30px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+          }
       </style> 
       <button part="btn">
           <slot>upload</slot>
@@ -146,6 +210,7 @@ export abstract class UploadButtonUI extends HTMLElement {
 
       <div part="result" id="storage-result"></div>
       <input type="file" multiple style="display: none;" />
+      <div part="toast" id="ipfsToast"></div>
     `;
   }
 
@@ -203,10 +268,19 @@ export abstract class UploadButtonUI extends HTMLElement {
       buttonElement.disabled = true;
     }
     // upload files
-    const result = await this._uploadFiles(files);
-    // display result storage files
-    await this._displayResult(result);
+    const result = [] as any; //await this._uploadFiles(files);
+    if (this.isDisplayToast) {
+      // disdplay Toast message
+      await this._displayToast({
+        message: `Successfully uploaded ${result.length} files to IPFS`,
+      });
+    }
+    if (this.isDisplayResult) {
+      // display result storage files
+      await this._displayResult(result);
+    }
     // ui management
+    e.target.value = '';
     if (spinner) {
       spinner.style.display = 'none';
     }
@@ -217,15 +291,34 @@ export abstract class UploadButtonUI extends HTMLElement {
     this.dispatchEvent(new CustomEvent('success', { detail: { result } }));
   }
 
+  private async _displayToast({ message ,hideInMS = 3000, type = `success`}: {message: string, hideInMS?: number, type?: string }) {
+    if (!this.shadowRoot) {
+      throw new Error('[ERROR] shadowRoot is not defined');
+    }
+    // get created element
+    const toastElement = this.shadowRoot.querySelector('#ipfsToast') as HTMLElement;
+    if (!toastElement) {
+      throw new Error('[ERROR] toastElement is not defined');
+    }
+    // insert message and toggle class
+    toastElement.innerHTML = `<span>${message}</span>`;
+    toastElement.classList.add('show');
+    toastElement.classList.add(type);
+    // hide element after 3s
+    const t = setTimeout(() => {
+      toastElement.classList.remove('show');
+      toastElement.classList.remove(type);
+      clearTimeout(t);
+    }
+    , hideInMS);
+  }
+
   private async _displayResult(
     result: {
       ipfsUrl: string;
       localUrl: string;
     }[]
   ) {
-    if (!this.isDisplayResult) {
-      return;
-    }
     const el = this.shadowRoot?.querySelector('#storage-result') as any;
     if (el) {
       el.innerHTML = result
