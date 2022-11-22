@@ -274,14 +274,20 @@ export abstract class UploadButtonUI extends HTMLElement {
       buttonElement.disabled = true;
     }
     // upload files
-    const result = [] as any; //await this._uploadFiles(files);
+    const result = await this._uploadFiles(files).catch((error) => ({
+      error: new Error(error?.mmessage || `Error uploading files to IPFS`),
+    }));
     if (this.isDisplayToast) {
       // disdplay Toast message
+      const haveError = result instanceof Error;
       await this._displayToast({
-        message: `Successfully uploaded ${result.length} files to IPFS`,
+        message: haveError
+          ? result.message
+          : `Successfully uploaded ${(result as any[]).length} files to IPFS`,
+        type: haveError ? 'error' : 'success',
       });
     }
-    if (this.isDisplayResult) {
+    if (this.isDisplayResult && result instanceof Array) {
       // display result storage files
       await this._displayResult(result);
     }
@@ -294,7 +300,11 @@ export abstract class UploadButtonUI extends HTMLElement {
       buttonElement.disabled = false;
     }
     // dispatch event
-    this.dispatchEvent(new CustomEvent('success', { detail: { result } }));
+    if (result instanceof Error) {
+      this.dispatchEvent(new CustomEvent('error', { detail: { result } }));
+    } else {
+      this.dispatchEvent(new CustomEvent('success', { detail: { result } }));
+    }
   }
 
   private async _displayToast({
