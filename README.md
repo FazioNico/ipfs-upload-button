@@ -26,6 +26,7 @@ You can use the following attribut to toggle the component behavior:
 
   - `token` - **required** - Your Web3Storage APIKEY.
   - `isdisplayresult` - **optional** - Display the result of the upload in the DOM. Default value is `false`.
+  - `isdisplaytoast` - **optional** - Display notification toast. Default value is `false`.
 
 ### Customization Style
 
@@ -34,6 +35,7 @@ You can customize the component style by using the following CSS-Parts:
   - `btn` - The button element
   - `spinner` - The spinner element
   - `result` - The results display element 
+  - `toast` - The toast display element nv
 
 **Example:**
 

@@ -3,6 +3,9 @@
   "version": 2,
   "projects": {
     "html-demo": "apps/html-demo",
-    "ipfs-upload-button": "packages/ipfs-upload-button"
+    "ipfs-upload-button": "packages/ipfs-upload-button",
+    "docs": {
+      "root": "apps/docs"
+    }
   }
 }

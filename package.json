@@ -6,7 +6,8 @@
     "serve:html-demo": "nx serve html-demo",
     "bundle": "nx bundle ipfs-upload-button --verbose",
     "publish": "nx publish ipfs-upload-button",
-    "deploy:static-html-demo": "gh-pages -d ./apps/static-html-demo"
+    "deploy:static-html-demo": "gh-pages -d ./apps/static-html-demo",
+    "deploy:docs": "gh-pages -d ./apps/docs/build"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,7 @@
     "@nrwl/jest": "14.7.16",
     "@nrwl/js": "14.7.16",
     "@nrwl/linter": "14.7.16",
+    "@nrwl/react": "^15.2.1",
     "@nrwl/web": "^14.7.16",
     "@nrwl/webpack": "14.7.16",
     "@nrwl/workspace": "14.7.16",
