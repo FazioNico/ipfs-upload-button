@@ -6,7 +6,7 @@ export class Web3UploadButton extends UploadButtonUI {
   // optional attributes
   public gateway?: string;
   // static observed Attributes
-  public static observedAttributes = [
+  public static override observedAttributes = [
     ...super.observedAttributes, 
     'token', 'gateway'
   ]; 
@@ -15,7 +15,7 @@ export class Web3UploadButton extends UploadButtonUI {
     super();
   }
 
-  attributeChangedCallback(name: string, old: string, value: string) {
+  public override attributeChangedCallback(name: string, old: string, value: string) {
     super.attributeChangedCallback(name, old, value);
     // console.log(`Element's attribute ${name} was ${old} and is now ${value}`);
     // set correct value to the property

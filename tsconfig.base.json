@@ -17,9 +17,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@fazio/ipfs-upload-button": [
-        "packages/ipfs-upload-button/src/index.ts"
-      ]
+      "@fazio/ipfs-upload-button": ["packages/ipfs-upload-button/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

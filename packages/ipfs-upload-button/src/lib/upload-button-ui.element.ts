@@ -294,7 +294,12 @@ export abstract class UploadButtonUI extends HTMLElement {
       await this._displayResult(result);
     }
     // ui management
-    e.target.value = '';
+    const elToReset = e.target 
+      ? e.target
+      : e?.path?.find((el: HTMLElement) => el?.tagName === 'INPUT');
+    if (elToReset) {
+      elToReset.value = '';
+    }
     if (spinner) {
       spinner.style.display = 'none';
     }

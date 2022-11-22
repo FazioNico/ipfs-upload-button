@@ -27,17 +27,17 @@
   "targetDependencies": {
     "build": [
       {
-          "target": "build",
-          "projects": "dependencies"
+        "target": "build",
+        "projects": "dependencies"
       }
     ],
     "bundle": [
       {
-          "target": "package",
-          "projects": "self"
+        "target": "package",
+        "projects": "self"
       }
     ]
-  }, 
+  },
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
@@ -64,6 +64,22 @@
       "linter": "eslint",
       "unitTestRunner": "none",
       "e2eTestRunner": "none"
+    },
+    "@nrwl/react": {
+      "application": {
+        "style": "css",
+        "unitTestRunner": "none",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "css"
+      },
+      "library": {
+        "style": "css",
+        "unitTestRunner": "none",
+        "linter": "eslint"
+      }
     }
   },
   "defaultProject": "html-demo"
