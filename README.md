@@ -20,56 +20,13 @@
     </web3-upload-btn>
     ```
 
-### Attributes
+## Documentation
 
-You can use the following attribut to toggle the component behavior:
+  - [Doc Reference](https://fazionico.github.io/ipfs-upload-button/)
+  - [Usage with Angular](https://fazionico.github.io/ipfs-upload-button/category/angular)
+  - [Usage with React](https://fazionico.github.io/ipfs-upload-button/category/reactjs)
+  - [Usage with Javascript](https://fazionico.github.io/ipfs-upload-button/category/vanilla-javascript)
 
-  - `token` - **required** - Your Web3Storage APIKEY.
-  - `isdisplayresult` - **optional** - Display the result of the upload in the DOM. Default value is `false`.
-  - `isdisplaytoast` - **optional** - Display notification toast. Default value is `false`.
-
-### Customization Style
-
-You can customize the component style by using the following CSS-Parts:
-
-  - `btn` - The button element
-  - `spinner` - The spinner element
-  - `result` - The results display element 
-  - `toast` - The toast display element nv
-
-**Example:**
-
-```css
-  web3-upload-btn::part(btn) {
-    background-color: rgb(0, 162, 255);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-```
-
-### Handle Events
-
-You can handle the following events from the component:
-
-  - `progress` - The upload progress event. The event detail is the upload progress in percentage.
-  - `success` - The upload success event. The event detail is the upload result.
-  - `error` - The upload error event. The event detail is the error message.
-
-**Example:**
-  
-  ```js
-  const btn = document.querySelector('web3-upload-btn')
-  btn.addEventListener('success', (e) => {
-    console.log('Result: ', e.detail);
-  });
-  ```
 
 
 ## Development
