@@ -43,7 +43,10 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/FazioNico/ipfs-upload-button',
-          routeBasePath: '/'
+          routeBasePath: '/',
+          remarkPlugins: [
+            [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
+          ],
         },
         blog: false,
         //  {
