@@ -5,11 +5,14 @@ sidebar_position: 1
 
 # Introduction
 
-> Customable Web Component button to upload files to IPFS.
+<img src="img/banner.png" />
 
-## Presentation
 
-<b>@fazio/ipfs-upload-button</b> is a library that allows you to upload files to IPFS from a web browser by using simple HTML elements.
+## Overview
+
+Customable Web Component button to upload files to IPFS.
+
+@fazio/ipfs-upload-button is a library that allows you to upload files to IPFS from a web browser by using simple HTML elements.
 
 ## Technology Stack
 

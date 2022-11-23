@@ -4,9 +4,6 @@ sidebar_position: 2
 
 # Getting Started
 
-<b>ipfs-upload-button</b> is a library that allows you to upload files to IPFS from a web browser by using simple HTML elements.
-
-
 ## Install packages
 
 Install library using your favorite package manager
