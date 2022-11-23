@@ -1,6 +1,7 @@
 import { PutOptions, Web3Storage } from 'web3.storage';
+import { IPFSStorageServiceInterface } from '../interfaces/storage-service.interface';
 
-export class Web3StorageService {
+export class Web3StorageService implements IPFSStorageServiceInterface {
   private _service!: Web3Storage;
 
   constructor(token: string) {
