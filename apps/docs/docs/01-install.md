@@ -22,7 +22,15 @@ You need to import the web component in your project by adding the following lin
 
 ## Configuration
 
-### API Key
-To use the libraries packages, you need an API key from [Web3.Storage](https://web3.storage/). You can get one for free by signing up.
+This compoonent working with third party services to upload files to IPFS and pin them. You need to select which service you want to use and provide the corresponding API key.
+
+By default, the component is configured to use [Web3Storage](https://web3.storage/).
+
+### Web3Storage
+To use the libraries packages with [Web3Storage](https://web3.storage/), you need to sign up and get your free <b>API key</b>. 
+
+### Pinata
+
+To use the libraries packages with [Pinata](https://pinata.cloud/), you need to sign up and get your free <b>Authorization Token</b>.
 
 

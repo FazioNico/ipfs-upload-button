@@ -16,9 +16,14 @@ Customable Web Component button to upload files to IPFS.
 
 ## Technology Stack
 
+### Core Technologies
+
   - [Typescript](https://www.typescriptlang.org/) - Programming language used to develop the project.
   - [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) - To build and provide cross-browser support for the component.
+
+### IPFS providers & pining services
   - [Web3Storage](https://web3.storage/) - As IPFS provider and pinning service.
+  - [Pinata](https://pinata.cloud/) - As IPFS provider and pinning service.
 
     
 ## Installation 
