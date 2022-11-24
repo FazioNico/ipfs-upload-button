@@ -1,7 +1,11 @@
+import { defaultHtml, butttonHTML, fromUrlHTML } from './templates';
+import { globalStyle, buttonStyle, toastStyle } from './styles';
+
 export abstract class UploadButtonUI extends HTMLElement {
-  public isDisplayResult?: boolean;
-  public isDisplayToast?: boolean;
-  public static observedAttributes = ['isdisplayresult', 'isdisplaytoast'];
+  protected isDisplayResult?: boolean;
+  protected isDisplayToast?: boolean;
+  protected isFromUrl?: boolean;
+  public static observedAttributes = ['isdisplayresult', 'isdisplaytoast', 'isfromurl'];
 
   constructor() {
     super();
@@ -9,8 +13,6 @@ export abstract class UploadButtonUI extends HTMLElement {
     if (!this.shadowRoot) {
       throw new Error('[ERROR] shadowRoot is not defined');
     }
-    this._render();
-    this._addEvents();
   }
 
   protected abstract _uploadFiles(files: File[]): Promise<
@@ -23,7 +25,9 @@ export abstract class UploadButtonUI extends HTMLElement {
   >;
 
   connectedCallback() {
-    console.log('[INFO] Appended and connected to document');
+    // console.log('[INFO] Appended and connected to document');
+    this._render();
+    this._addEvents();
   }
 
   disconnectedCallback() {
@@ -43,177 +47,30 @@ export abstract class UploadButtonUI extends HTMLElement {
     if (name === 'isdisplaytoast') {
       this.isDisplayToast = Boolean(value);
     }
+    if (name === 'isfromurl') {
+      this.isFromUrl = Boolean(value);
+    }    
   }
 
   private _render() {
     if (!this.shadowRoot) {
       return;
     }
-    this.shadowRoot.innerHTML = `
-      <style>
-          :host {
-              display: inline;
-              position: relative;
-              width: 100%;
-              height: 100%;
-              overflow: hidden;
-  
-          }
-          button {
-              position: relative;
-              display: inline;
-              cursor: pointer;
-              z-index: 1;
-              min-height: 18px;
-          }
-          #storage-result {
-            display: none;
-            margin-top: 1rem;
-          }
-          #storage-result a {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            align-items: center;
-            align-content: center;
-          }
-          #storage-result a img {
-            margin-right: 10px;
-          }
-          .spinner {
-            display: none;
-          }
-          .lds-ellipsis {
-            display: inline-block;
-            position: relative;
-            width: 80px;
-            height: 12px;
-          }
-          .lds-ellipsis div {
-            position: absolute;
-            top: 0px;
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
-            background: #000;
-            animation-timing-function: cubic-bezier(0, 1, 1, 0);
-          }
-          .lds-ellipsis div:nth-child(1) {
-            left: 8px;
-            animation: lds-ellipsis1 0.6s infinite;
-          }
-          .lds-ellipsis div:nth-child(2) {
-            left: 8px;
-            animation: lds-ellipsis2 0.6s infinite;
-          }
-          .lds-ellipsis div:nth-child(3) {
-            left: 32px;
-            animation: lds-ellipsis2 0.6s infinite;
-          }
-          .lds-ellipsis div:nth-child(4) {
-            left: 56px;
-            animation: lds-ellipsis3 0.6s infinite;
-          }
-          @keyframes lds-ellipsis1 {
-            0% {
-              transform: scale(0);
-            }
-            100% {
-              transform: scale(1);
-            }
-          }
-          @keyframes lds-ellipsis3 {
-            0% {
-              transform: scale(1);
-            }
-            100% {
-              transform: scale(0);
-            }
-          }
-          @keyframes lds-ellipsis2 {
-            0% {
-              transform: translate(0, 0);
-            }
-            100% {
-              transform: translate(24px, 0);
-            }
-          } 
-          
-          /* Toast Element */
-          #ipfsToast {
-            visibility: hidden; /* Hidden by default. Visible on click */
-            min-width: 250px; /* Set a default minimum width */
-            margin-left: -125px; /* Divide value of min-width by 2 */
-            background-color: lightblue; /* Background color */
-            color: #fff; /* White text color */
-            text-align: center; /* Centered text */
-            border-radius: 8px; /* Rounded borders */
-            padding: 16px; /* Padding */
-            position: fixed; /* Sit on top of the screen */
-            z-index: 1; /* Add a z-index if needed */
-            left: 50%; /* Center the snackbar */
-            bottom: 30px; /* 30px from the bottom */
-            font-family: 'Roboto', sans-serif;
-            display: inline-flex;
-            line-hight: 12px;
-          }
-          #ipfsToast.success {
-            background-color: green; /* Fallback Background color */
-            background-color: lightgreen; /* Fallback Background color */
-            background-color: springgreen; /* Background color */
-          }
-          #ipfsToast.error {
-            background-color: red; /* Fallback Background color */
-            background-color: indianred; /* Background color */
-          }
-          #ipfsToast span {
-            margin-left: 12px;
-            margin-top: 2px;
-          }
-          
-          /* Show the SIMPLE-TOAST when clicking on a button (class added with JavaScript) */
-          #ipfsToast.show {
-            visibility: visible; /* Show the SIMPLE-TOAST */
-            /* Add animation: Take 0.5 seconds to fade in and out the SIMPLE-TOAST.
-            However, delay the fade out process for 2.5 seconds */
-            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-            animation: fadein 0.5s, fadeout 0.5s 2.5s;
-          }
-          
-          /* Animations to fade the SIMPLE-TOAST in and out */
-          @-webkit-keyframes fadein {
-            from {bottom: 0; opacity: 0;}
-            to {bottom: 30px; opacity: 1;}
-          }
-          
-          @keyframes fadein {
-            from {bottom: 0; opacity: 0;}
-            to {bottom: 30px; opacity: 1;}
-          }
-          
-          @-webkit-keyframes fadeout {
-            from {bottom: 30px; opacity: 1;}
-            to {bottom: 0; opacity: 0;}
-          }
-          
-          @keyframes fadeout {
-            from {bottom: 30px; opacity: 1;}
-            to {bottom: 0; opacity: 0;}
-          }
-      </style> 
-      <button part="btn">
-          <slot>upload</slot>
-      </button>
-
-      <div part="spinner" class="spinner">
-        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-      </div>
-
-      <div part="result" id="storage-result"></div>
-      <input type="file" multiple style="display: none;" />
-      <div part="toast" id="ipfsToast"></div>
-    `;
+    // build html
+    const html = [butttonHTML, defaultHtml];
+    if (this.isFromUrl) {
+      html.unshift(fromUrlHTML);
+    }
+    // add styles
+    html.unshift(`
+    <style>
+      ${globalStyle}
+      ${buttonStyle}
+      ${toastStyle}
+    </style>
+    `);
+    // insert content to shadow root
+    this.shadowRoot.innerHTML = html.join('');
   }
 
   private _addEvents() {
@@ -225,7 +82,7 @@ export abstract class UploadButtonUI extends HTMLElement {
     }
     // find all ui elements
     const inputElement = this.shadowRoot.querySelector(
-      'input'
+      'input[type="file"]'
     ) as HTMLInputElement;
     const resultElement = this.shadowRoot.querySelector(
       '#storage-result'
@@ -240,22 +97,41 @@ export abstract class UploadButtonUI extends HTMLElement {
       throw new Error(message);
     }
     // handle click event
-    buttonElement.addEventListener('click', () => {
+    buttonElement.addEventListener('click', async () => {
       // clean result zone
       if (resultElement) {
         resultElement.innerHTML = '';
         resultElement.style.display = 'none';
       }
-      // trigger input click
-      inputElement.click();
+      // trigger corresponding logic
+      if (this.isFromUrl) {
+        // get input value
+        const inputUrlElement = this.shadowRoot?.querySelector('input[type="url"]') as any;
+        if (!inputUrlElement?.value) {
+          return;
+        } 
+        // run logic
+        const file = await this._downloadFileFromUrl(inputUrlElement.value);
+        if (file) {
+          this._onInputFileChange(inputUrlElement, [file]);
+        }
+      } else {
+        // trigger input click
+        inputElement.click();
+      }
     });
     // handle input change event
-    inputElement.addEventListener('change', async (e) =>
-      this._onInputFileChange(e)
-    );
+    inputElement.addEventListener('change', async (e) =>{
+      const files = (e.target as HTMLInputElement).files||[];
+      this._onInputFileChange(e.target as HTMLInputElement, Array.from(files));
+    });
   }
 
-  private async _onInputFileChange(e: any) {
+  private async _onInputFileChange(target: HTMLInputElement, files: File[]) {
+    // check if files are defined and not empty
+    if (!files || files.length === 0) {
+      return;
+    }
     if (!this.shadowRoot) {
       throw new Error('[ERROR] shadowRoot is not defined');
     }
@@ -263,7 +139,6 @@ export abstract class UploadButtonUI extends HTMLElement {
       'button'
     ) as HTMLButtonElement;
     const spinner = this.shadowRoot.querySelector('.spinner') as HTMLElement;
-    const files = (e?.target as any)?.files;
     // only if have files
     if (!files || files.length === 0) {
       return;
@@ -294,9 +169,9 @@ export abstract class UploadButtonUI extends HTMLElement {
       await this._displayResult(result);
     }
     // ui management
-    const elToReset = e.target 
-      ? e.target
-      : e?.path?.find((el: HTMLElement) => el?.tagName === 'INPUT');
+    const elToReset = target 
+      // ? target
+      // : target?.path?.find((el: HTMLElement) => el?.tagName === 'INPUT');
     if (elToReset) {
       elToReset.value = '';
     }
@@ -356,7 +231,7 @@ export abstract class UploadButtonUI extends HTMLElement {
       el.innerHTML = result
         .map(({ localUrl, ipfsUrl }) => {
           return `
-            <a href="${ipfsUrl}">
+            <a href="${ipfsUrl}" target="_blank">
               <img src="${localUrl}" width="100" />
               ${ipfsUrl}
             </a>
@@ -365,5 +240,13 @@ export abstract class UploadButtonUI extends HTMLElement {
         .join('<br>');
       el.style.display = 'block';
     }
+  }
+
+  private async _downloadFileFromUrl(url: string) {
+    // download file as local file
+    const file = await fetch(url)
+    .then( (response) => response.blob()
+    .then((blob) => new File([blob], 'file')));
+    return file;
   }
 }
