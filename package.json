@@ -5,6 +5,8 @@
   "scripts": {
     "serve:docs": "npx nx start docs",
     "serve:html-demo": "nx serve html-demo",
+    "build:docs": "nx build docs",
+    "build:libs": "nx build ipfs-upload-button",
     "bundle": "nx bundle ipfs-upload-button --verbose",
     "publish": "nx publish ipfs-upload-button",
     "deploy:static-html-demo": "gh-pages -d ./apps/static-html-demo",
