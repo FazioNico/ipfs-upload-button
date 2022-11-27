@@ -42,21 +42,20 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/FazioNico/ipfs-upload-button',
+            'https://github.com/FazioNico/ipfs-upload-button/tree/main/apps/docs',
           routeBasePath: '/',
           remarkPlugins: [
             [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
           ],
         },
-        blog: false,
-        //  {
+        blog: {
 
-        //   showReadingTime: true,
-        //   // Please change this to your repo.
-        //   // Remove this to remove the "edit this page" links.
-        //   editUrl:
-        //     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        // },
+          showReadingTime: true,
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/fazionico/ipfs-upload-button/tree/main/apps/docs/blog',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -70,13 +69,13 @@ const config = {
       navbar: {
         title: 'IPFS Upload Button',
         items: [
-          // {
-          //   type: 'doc',
-          //   docId: 'intro',
-          //   position: 'left',
-          //   label: 'Docs',
-          // },
-          // {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            type: 'doc',
+            docId: 'intro',
+            position: 'left',
+            label: 'Documentation',
+          },
+          {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/FazioNico/ipfs-upload-button',
             label: 'GitHub',
