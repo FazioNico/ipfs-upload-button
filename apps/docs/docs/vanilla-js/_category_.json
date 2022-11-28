@@ -1,0 +1,8 @@
+{
+  "label": "Vanilla Javascript",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Documentation for Vanilla Javascript with ES6 modules"
+  }
+}

@@ -18,7 +18,7 @@
 
 You can use the following attribut to toggle the component behavior:
 
-  - `token` - **required** - Your Web3Storage APIKEY.
+  - `token` - **required** - Your IPFS provider APIKEY or JWT <small>(see [Configuration](https://fazionico.github.io/ipfs-upload-button/install#configuration))</small>.
   - `isdisplayresult` - **optional** - Display the result of the upload in the DOM. Default value is `false`.
 
 ### Customization Style

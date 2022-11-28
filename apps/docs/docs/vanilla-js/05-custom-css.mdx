@@ -1,0 +1,44 @@
+---
+sidebar_position: 4
+---
+
+# Customization Style
+
+Component is build on top of web component and using CSS-Parts and CSS-Variables to allow customization.
+
+## CSS-Parts
+
+You can customize the component style by using the following CSS-Parts:
+
+  - `btn` - The button element
+  - `spinner` - The spinner element
+  - `result` - The results display element 
+  - `toast` - The toast display element nv
+
+## Code example
+
+```css
+  web3-upload-btn::part(btn) {
+    background-color: rgb(0, 162, 255);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+```
+
+
+### Preview result
+
+<web3-upload-btn 
+    class="demoCSS"
+    token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDRiMjk5MEFiNzVjZmQ0MTgyN0EzQTNjNGViNjdFRDA1Y0YwNTU5M0MiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NDM2NjExODA1MDAsIm5hbWUiOiJuZ3h3ZWIzIn0.AMvg_jKnPB2pRPiR6f8AebIHrldAwMCpxILQ7av_SD8"
+    isdisplayresult="true"
+    isdisplaytoast="true">
+  Upload to IPFS
+</web3-upload-btn>

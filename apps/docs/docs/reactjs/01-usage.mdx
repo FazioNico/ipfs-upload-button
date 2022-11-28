@@ -1,0 +1,37 @@
+---
+sidebar_position: 1
+---
+
+# Basic usage
+
+Component have to be imported to your project and then you can use it in your template. Here is an example of usage.
+
+
+## Functionnal component
+
+Component can be used as a function component.
+
+## Code example
+
+```js
+import '@fazio/ipfs-upload-button';
+
+export function App() {
+  const token = 'WEB3STORAGE_APIKEY';
+
+  return (
+    <>
+      <div/>
+      <web3-upload-btn token={token}></web3-upload-btn>
+      <div />
+    </>
+  );
+}
+export default App;
+```
+
+### Preview result
+
+<web3-upload-btn token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDRiMjk5MEFiNzVjZmQ0MTgyN0EzQTNjNGViNjdFRDA1Y0YwNTU5M0MiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NDM2NjExODA1MDAsIm5hbWUiOiJuZ3h3ZWIzIn0.AMvg_jKnPB2pRPiR6f8AebIHrldAwMCpxILQ7av_SD8">
+  Upload to IPFS
+</web3-upload-btn>

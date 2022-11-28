@@ -2,7 +2,12 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "angular-demo": "apps/angular-demo",
+    "docs": {
+      "root": "apps/docs"
+    },
     "html-demo": "apps/html-demo",
-    "ipfs-upload-button": "packages/ipfs-upload-button"
+    "ipfs-upload-button": "packages/ipfs-upload-button",
+    "react-demo": "apps/react-demo"
   }
 }
