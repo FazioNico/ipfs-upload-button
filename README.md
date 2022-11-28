@@ -6,16 +6,19 @@
 
   - [Typescript](https://www.typescriptlang.org/) - Programming language used to develop the project.
   - [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) - To build and provide cross-browser support for the component.
+
+## IPFS providers & pining services
   - [Web3Storage](https://web3.storage/) - As IPFS provider and pinning service.
+  - [Pinata](https://pinata.cloud/) - As IPFS provider and pinning service.
 
 ## Usage & Installation
 
   - install NPM package `npm install @fazio/ipfs-upload-button`
   - import the component in your project `import '@fazio/ipfs-upload-button'`
-  - create `APIKEY` on [Web3Storage](https://web3.storage/).
+  - provide valide `APIKEY`. See [doccumentation:Config](https://fazionico.github.io/ipfs-upload-button/install#configuration) section for more details.
   - add the component to your HTML page 
     ```html
-    <web3-upload-btn token="YOUR_WEB3STORAGE_APIKEY">
+    <web3-upload-btn token="YOUR_APIKEY">
       Upload to IPFS
     </web3-upload-btn>
     ```
@@ -39,6 +42,8 @@
 
 ## Publish
 
+You have to `build` and `bundle` the project before publishing it to NPM.
+
 - Run `npm run publish` to build and publish the project to NPM registry.
 
 ## Architecture overview
@@ -46,15 +51,10 @@
 The follder architecture is based on Nx Workspace to provide a configurable workspace that can contain multiple applications in the `./apps` folder and multiple libraries in the `./packages` folder. 
 This is very useful for building large scale applications with multiple components and features that can be easily maintained and updated.
 
-The main package is stored in `./packages/ipfs-upload-button` folder and it contains files and folders organized with the following structure:
+- The main package is stored in `./packages/ipfs-upload-button` folder and it contains files and folders that are required to build the library.
+- The Documentation website is stored in `./apps/docs` folder and it contains files and folders that are required to build the documentation website.
 
-| File                                      | Description                                                           |
-|-------------------------------------------|-----------------------------------------------------------------------|
-| `/src/index.ts`                           | contains the main entry point of the library                          |
-| `/src/lib/upload-button-ui.element.ts`    | Web Component that implement UI                                       |
-| `/src/lib/ipfs-upload-button.element.ts`  | Web Component that implenent interaction with Web3Storage Service     |
-| `/src/lib/web3-storage.service.ts`        | Service that interact with Web3Storage Library to store media to IPFS |
-
+You can find demo applications in the `./apps` folder that are used to test the library and to provide examples of how to use the library in different frameworks like Angular, ReactJS or Vanilla Javascript.
 
 ## Contributing
 
